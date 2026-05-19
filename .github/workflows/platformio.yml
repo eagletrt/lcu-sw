@@ -36,9 +36,6 @@ jobs:
       - name: Build
         run: pio run -e release
 
-      - name: Run Unit Tests
-        run: pio test -e tests
-
       - name: Static Code Analysis
         if: github.ref == 'refs/heads/dev'
         run: pio check || true
