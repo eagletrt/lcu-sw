@@ -1,0 +1,38 @@
+digraph "lcu_fsm" {
+    bgcolor="white"
+    layout="dot"
+    center=true
+    concentrate=false
+
+    init [
+        style="filled"
+        color="#66ff66"
+        fillcolor="#c1ffc1"
+    ]
+    flash
+    idle
+    update_light
+    fatal [
+        style="filled"
+        color="#ff6666"
+        fillcolor="#ffc1c1"
+    ]
+
+    init -> idle [label="init_to_idle\n(Peripherals OK)"]
+    init -> fatal [label="init_to_fatal\n(Hardware Init/POST Failed)"]
+    
+    idle -> idle
+    idle -> flash [label="idle_to_flash\n(CAN Firmware Update Command)"]
+    idle -> update_light [label="idle_to_update_light\n(New Light Status)"]
+    idle -> fatal [label="idle_to_fatal"]
+    
+    flash -> idle [label="flash_to_idle"]
+    flash -> fatal [label="flash_to_fatal\n(Error while flashing)"]
+    
+    update_light -> idle [label="update_light_to_idle\n(PWM Set)"]
+    update_light -> fatal [label="update_light_to_fatal\n(light status update fail)"]
+    update_light -> update_light
+    
+    fatal -> flash
+    fatal -> fatal
+}
