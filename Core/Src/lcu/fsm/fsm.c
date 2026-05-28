@@ -15,7 +15,7 @@ The finite state machine has:
 #include "fsm.h"
 
 /*** USER CODE BEGIN MACROS ***/
-
+#include "eagletrt-api.h"
 /*** USER CODE END MACROS ***/
 
 // GLOBALS
@@ -79,7 +79,7 @@ state_t do_init(state_data_t *data) {
     state_t next_state = STATE_IDLE;
 
     /*** USER CODE BEGIN DO_INIT ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END DO_INIT ***/
 
     switch (next_state) {
@@ -99,7 +99,7 @@ state_t do_idle(state_data_t *data) {
     state_t next_state = NO_CHANGE;
 
     /*** USER CODE BEGIN DO_IDLE ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END DO_IDLE ***/
 
     switch (next_state) {
@@ -122,7 +122,7 @@ state_t do_fatal(state_data_t *data) {
     state_t next_state = NO_CHANGE;
 
     /*** USER CODE BEGIN DO_FATAL ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END DO_FATAL ***/
 
     switch (next_state) {
@@ -143,7 +143,7 @@ state_t do_flash(state_data_t *data) {
     state_t next_state = STATE_IDLE;
 
     /*** USER CODE BEGIN DO_FLASH ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END DO_FLASH ***/
 
     switch (next_state) {
@@ -163,7 +163,7 @@ state_t do_update_light(state_data_t *data) {
     state_t next_state = NO_CHANGE;
 
     /*** USER CODE BEGIN DO_UPDATE_LIGHT ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END DO_UPDATE_LIGHT ***/
 
     switch (next_state) {
@@ -197,7 +197,7 @@ state_t do_update_light(state_data_t *data) {
 void init_to_idle(state_data_t *data) {
 
     /*** USER CODE BEGIN INIT_TO_IDLE ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END INIT_TO_IDLE ***/
 }
 
@@ -206,7 +206,7 @@ void init_to_idle(state_data_t *data) {
 void init_to_fatal(state_data_t *data) {
 
     /*** USER CODE BEGIN INIT_TO_FATAL ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END INIT_TO_FATAL ***/
 }
 
@@ -215,7 +215,7 @@ void init_to_fatal(state_data_t *data) {
 void flash_to_idle(state_data_t *data) {
 
     /*** USER CODE BEGIN FLASH_TO_IDLE ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END FLASH_TO_IDLE ***/
 }
 
@@ -224,7 +224,7 @@ void flash_to_idle(state_data_t *data) {
 void flash_to_fatal(state_data_t *data) {
 
     /*** USER CODE BEGIN FLASH_TO_FATAL ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END FLASH_TO_FATAL ***/
 }
 
@@ -233,7 +233,7 @@ void flash_to_fatal(state_data_t *data) {
 void idle_to_flash(state_data_t *data) {
 
     /*** USER CODE BEGIN IDLE_TO_FLASH ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END IDLE_TO_FLASH ***/
 }
 
@@ -242,7 +242,7 @@ void idle_to_flash(state_data_t *data) {
 void idle_to_update_light(state_data_t *data) {
 
     /*** USER CODE BEGIN IDLE_TO_UPDATE_LIGHT ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END IDLE_TO_UPDATE_LIGHT ***/
 }
 
@@ -251,7 +251,7 @@ void idle_to_update_light(state_data_t *data) {
 void idle_to_fatal(state_data_t *data) {
 
     /*** USER CODE BEGIN IDLE_TO_FATAL ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END IDLE_TO_FATAL ***/
 }
 
@@ -260,7 +260,7 @@ void idle_to_fatal(state_data_t *data) {
 void update_light_to_idle(state_data_t *data) {
 
     /*** USER CODE BEGIN UPDATE_LIGHT_TO_IDLE ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END UPDATE_LIGHT_TO_IDLE ***/
 }
 
@@ -269,7 +269,7 @@ void update_light_to_idle(state_data_t *data) {
 void update_light_to_fatal(state_data_t *data) {
 
     /*** USER CODE BEGIN UPDATE_LIGHT_TO_FATAL ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END UPDATE_LIGHT_TO_FATAL ***/
 }
 
@@ -290,7 +290,7 @@ void update_light_to_fatal(state_data_t *data) {
 state_t run_state(state_t cur_state, state_data_t *data) {
 
     /*** USER CODE BEGIN RUN_STATE ***/
-
+    EAGLETRT_API_UNUSED(data);
     /*** USER CODE END RUN_STATE ***/
 
     event_data_t *prev_ev = fired_event;
@@ -304,7 +304,7 @@ state_t run_state(state_t cur_state, state_data_t *data) {
     if (transition)
         transition(data);
     return new_state;
-};
+}
 
 /*** USER CODE BEGIN FUNCTIONS ***/
 
