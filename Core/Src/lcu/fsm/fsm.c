@@ -55,8 +55,9 @@ bool is_event_triggered() {
 
 // Function to trigger an event
 void event_trigger(event_data_t *event) {
-    if (fired_event != NULL)
+    if (fired_event != NULL) {
         return;
+    }
     fired_event = event ? event : &(event_data_t){};
 }
 
@@ -296,13 +297,16 @@ state_t run_state(state_t cur_state, state_data_t *data) {
     event_data_t *prev_ev = fired_event;
     state_t new_state = state_table[cur_state](data);
     // Reset event status
-    if (prev_ev != NULL)
+    if (prev_ev != NULL) {
         fired_event = NULL;
-    if (new_state == NO_CHANGE)
+    }
+    if (new_state == NO_CHANGE) {
         new_state = cur_state;
+    }
     transition_func_t *transition = transition_table[cur_state][new_state];
-    if (transition)
+    if (transition) {
         transition(data);
+    }
     return new_state;
 }
 
