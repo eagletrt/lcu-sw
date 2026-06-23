@@ -171,8 +171,7 @@ state_t do_update_light(state_data_t *data) {
     state_t next_state = NO_CHANGE;
 
     /*** USER CODE BEGIN DO_UPDATE_LIGHT ***/
-    event_data_t *state_data = (event_data_t *)data;
-    brake_Update(state_data->brake_active);
+    brake_Update(data->brake_active);
     next_state = STATE_IDLE;
     /*** USER CODE END DO_UPDATE_LIGHT ***/
 

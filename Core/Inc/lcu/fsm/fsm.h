@@ -25,7 +25,9 @@ The finite state machine has:
 // By default set to void; override this typedef or load the proper
 // header if you need
 /*** USER STATE DATA TYPE BEGIN ***/
-typedef void state_data_t;
+typedef struct {
+    bool brake_active;
+} state_data_t;
 /*** USER STATE DATA TYPE END ***/
 // Event data object
 // By default the struct is empty; put the data of the event inside
@@ -33,7 +35,7 @@ typedef void state_data_t;
 typedef struct {
 
     /*** USER CODE BEGIN EVENT_DATA ***/
-    bool brake_active;
+    int dummy;
     /*** USER CODE END EVENT_DATA ***/
 
 } event_data_t;

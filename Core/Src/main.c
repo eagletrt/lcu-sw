@@ -96,13 +96,14 @@ int main(void) {
     MX_TIM14_Init();
     /* USER CODE BEGIN 2 */
     state_t current_state = run_state(STATE_INIT, NULL);
-    EAGLETRT_API_UNUSED(current_state);
+    state_data_t fsm_data = { .brake_active = false };
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while (1) {
         /* USER CODE END WHILE */
+        current_state = run_state(current_state, &fsm_data);
 
         /* USER CODE BEGIN 3 */
     }
