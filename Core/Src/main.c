@@ -25,7 +25,8 @@
 
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-
+#include "fsm.h"
+#include "eagletrt-api.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -94,7 +95,8 @@ int main(void) {
     MX_TIM3_Init();
     MX_TIM14_Init();
     /* USER CODE BEGIN 2 */
-
+    state_t current_state = run_state(STATE_INIT, NULL);
+    EAGLETRT_API_UNUSED(current_state);
     /* USER CODE END 2 */
 
     /* Infinite loop */

@@ -33,7 +33,7 @@ typedef void state_data_t;
 typedef struct {
 
     /*** USER CODE BEGIN EVENT_DATA ***/
-    int dummy;
+    bool brake_active;
     /*** USER CODE END EVENT_DATA ***/
 
 } event_data_t;

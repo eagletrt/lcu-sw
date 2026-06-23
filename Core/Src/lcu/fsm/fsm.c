@@ -16,6 +16,8 @@ The finite state machine has:
 
 /*** USER CODE BEGIN MACROS ***/
 #include "eagletrt-api.h"
+#include "brake.h"
+#include "tim.h"
 /*** USER CODE END MACROS ***/
 
 // GLOBALS
@@ -81,6 +83,9 @@ state_t do_init(state_data_t *data) {
 
     /*** USER CODE BEGIN DO_INIT ***/
     EAGLETRT_API_UNUSED(data);
+    if (brake_init() == false) {
+        next_state = STATE_FATAL;
+    }
     /*** USER CODE END DO_INIT ***/
 
     switch (next_state) {
@@ -101,6 +106,8 @@ state_t do_idle(state_data_t *data) {
 
     /*** USER CODE BEGIN DO_IDLE ***/
     EAGLETRT_API_UNUSED(data);
+    //TODO: implement idle loop
+
     /*** USER CODE END DO_IDLE ***/
 
     switch (next_state) {
@@ -164,7 +171,9 @@ state_t do_update_light(state_data_t *data) {
     state_t next_state = NO_CHANGE;
 
     /*** USER CODE BEGIN DO_UPDATE_LIGHT ***/
-    EAGLETRT_API_UNUSED(data);
+    event_data_t *state_data = (event_data_t *)data;
+    brake_Update(state_data->brake_active);
+    next_state = STATE_IDLE;
     /*** USER CODE END DO_UPDATE_LIGHT ***/
 
     switch (next_state) {
