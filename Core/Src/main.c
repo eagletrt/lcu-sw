@@ -27,6 +27,7 @@
 /* USER CODE BEGIN Includes */
 #include "fsm.h"
 #include "eagletrt-api.h"
+#include "brake_api.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -95,15 +96,20 @@ int main(void) {
     MX_TIM3_Init();
     MX_TIM14_Init();
     /* USER CODE BEGIN 2 */
-    state_t current_state = run_state(STATE_INIT, NULL);
-    state_data_t fsm_data = { .brake_active = false };
+    //TODO: use future post module struct
+    struct brake_api_data brake_init_data = { .brake_status = false, .brake_hw_update = tim_brake_update };
+    fsm_state_t current_state = fsm_run_state(FSM_STATE_INIT, &brake_init_data);
+    //TODO: move pwm start inside future post module
+    if (tim_brake_start() == false) {
+        current_state = FSM_STATE_FATAL;
+    }
     /* USER CODE END 2 */
 
     /* Infinite loop */
     /* USER CODE BEGIN WHILE */
     while (1) {
         /* USER CODE END WHILE */
-        current_state = run_state(current_state, &fsm_data);
+        current_state = fsm_run_state(current_state, NULL);
 
         /* USER CODE BEGIN 3 */
     }
