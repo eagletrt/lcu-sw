@@ -106,12 +106,12 @@ int main(void) {
     /* USER CODE END 2 */
 
     /* Infinite loop */
-    /* USER CODE BEGIN WHILE */
-    while (1) {
-        /* USER CODE END WHILE */
+/* USER CODE BEGIN WHILE */
+while (1) {
         current_state = fsm_run_state(current_state, NULL);
+/* USER CODE END WHILE */
 
-        /* USER CODE BEGIN 3 */
+/* USER CODE BEGIN 3 */
     }
     /* USER CODE END 3 */
 }
