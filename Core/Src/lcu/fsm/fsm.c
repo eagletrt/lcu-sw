@@ -106,8 +106,7 @@ fsm_state_t fsm_do_idle(fsm_state_data_t *data) {
     EAGLETRT_API_UNUSED(data);
     bool pedal_dummy_status = true;
     if (pedal_dummy_status != brake_api_get_status()) {
-        brake_api_set_status(true);
-        // TODO: where do i call tim_brake_update();
+        brake_api_set_status(pedal_dummy_status);
     }
     /*** USER CODE END DO_IDLE ***/
 
