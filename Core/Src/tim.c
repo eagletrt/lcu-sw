@@ -316,10 +316,6 @@ void tim_brake_update(bool actuated) {
 }
 
 bool tim_brake_start() {
-    HAL_StatusTypeDef status = HAL_TIM_PWM_Start(&htim14, TIM_CHANNEL_1);
-    if (status != HAL_OK) {
-        return false;
-    }
-    return true;
+    return HAL_TIM_PWM_Start(&htim14, TIM_CHANNEL_1) == HAL_OK;
 }
 /* USER CODE END 1 */
