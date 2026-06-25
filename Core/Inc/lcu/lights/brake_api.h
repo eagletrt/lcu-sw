@@ -26,7 +26,7 @@ struct brake_api_data {
 enum BrakeReturnCode {
     BRAKE_RC_OK,               /*!< Everything is fine. */
     BRAKE_RC_INVALID_ARGUMENT, /*!< Invalid parameter data. */
-    BRAKE_RC_NULL_POINTER,     /*!< Unexpected NULL pointer. */
+    BRAKE_RC_NULL_POINTER     /*!< Unexpected NULL pointer. */
 };
 
 /*!
