@@ -20,7 +20,7 @@
  * \retval          PAL_RC_OK on success, an error otherwise:
  * \retval          PAL_RC_NULL_POINTER if any of the pointer parameters are NULL.
  */
-enum BrakeReturnCode brake_api_init(const struct BrakeApiHandler *init_data);
+enum BrakeReturnCode brake_api_init(void (*)(bool));
 
 /*!
  * \brief           set brake status.

@@ -13,12 +13,12 @@
 #include <stddef.h>
 EAGLETRT_STATIC struct BrakeApiHandler brake_handler;
 
-enum BrakeReturnCode brake_api_init(const struct BrakeApiHandler *init_data) {
-    if (init_data == NULL) {
+enum BrakeReturnCode brake_api_init(void (*brake_hw_update)(bool)) {
+    if (brake_hw_update == NULL) {
         return BRAKE_RC_NULL_POINTER;
     }
-    brake_handler.brake_status = init_data->brake_status;
-    brake_handler.brake_hw_update = init_data->brake_hw_update;
+    brake_handler.brake_status = false;
+    brake_handler.brake_hw_update = brake_hw_update;
     return BRAKE_RC_OK;
 }
 

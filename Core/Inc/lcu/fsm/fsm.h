@@ -26,7 +26,9 @@ Functions and types have been generated with prefix "fsm_"
 // By default set to void; override this typedef or load the proper
 // header if you need
 /*** USER STATE DATA TYPE BEGIN ***/
-typedef void fsm_state_data_t;
+typedef struct {
+    void (*brake_hw_update)(bool);
+} fsm_state_data_t; //temp structure
 /*** USER STATE DATA TYPE END ***/
 // Event data object
 // By default the struct is empty; put the data of the event inside

@@ -97,8 +97,9 @@ int main(void) {
     MX_TIM14_Init();
     /* USER CODE BEGIN 2 */
     //TODO: use future post module struct
-    struct BrakeApiHandler brake_init_data = { .brake_status = false, .brake_hw_update = tim_brake_update };
-    fsm_state_t current_state = fsm_run_state(FSM_STATE_INIT, &brake_init_data);
+    //temp!! i can cast function pointers to object pointers, this will be replaced by a post data structure in the future
+    fsm_state_data_t brake_init = { .brake_hw_update = tim_brake_update };
+    fsm_state_t current_state = fsm_run_state(FSM_STATE_INIT, &brake_init);
     //TODO: move pwm start inside future post module
     if (tim_brake_start() == false) {
         current_state = FSM_STATE_FATAL;

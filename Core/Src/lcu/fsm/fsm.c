@@ -79,9 +79,8 @@ fsm_state_t fsm_do_init(fsm_state_data_t *data) {
     fsm_state_t next_state = FSM_STATE_IDLE;
 
     /*** USER CODE BEGIN DO_INIT ***/
-    struct BrakeApiHandler *init_data = (struct BrakeApiHandler *)data;
     //TODO: move this to the post module
-    if (brake_api_init(init_data) != BRAKE_RC_OK) {
+    if (brake_api_init(data->brake_hw_update) != BRAKE_RC_OK) {
         next_state = FSM_STATE_FATAL;
     }
     /*** USER CODE END DO_INIT ***/
