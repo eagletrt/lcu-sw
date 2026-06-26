@@ -97,7 +97,7 @@ int main(void) {
     MX_TIM14_Init();
     /* USER CODE BEGIN 2 */
     //TODO: use future post module struct
-    struct brake_api_data brake_init_data = { .brake_status = false, .brake_hw_update = tim_brake_update };
+    struct BrakeApiHandler brake_init_data = { .brake_status = false, .brake_hw_update = tim_brake_update };
     fsm_state_t current_state = fsm_run_state(FSM_STATE_INIT, &brake_init_data);
     //TODO: move pwm start inside future post module
     if (tim_brake_start() == false) {
@@ -106,12 +106,12 @@ int main(void) {
     /* USER CODE END 2 */
 
     /* Infinite loop */
-/* USER CODE BEGIN WHILE */
-while (1) {
+    /* USER CODE BEGIN WHILE */
+    while (1) {
         current_state = fsm_run_state(current_state, NULL);
-/* USER CODE END WHILE */
+        /* USER CODE END WHILE */
 
-/* USER CODE BEGIN 3 */
+        /* USER CODE BEGIN 3 */
     }
     /* USER CODE END 3 */
 }
