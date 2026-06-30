@@ -43,9 +43,9 @@ void MX_TIM1_Init(void) {
 
     /* USER CODE END TIM1_Init 1 */
     htim1.Instance = TIM1;
-    htim1.Init.Prescaler = 0;
+    htim1.Init.Prescaler = 16 - 1;
     htim1.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim1.Init.Period = 65535;
+    htim1.Init.Period = 100 - 1;
     htim1.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     htim1.Init.RepetitionCounter = 0;
     htim1.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
@@ -103,9 +103,9 @@ void MX_TIM3_Init(void) {
 
     /* USER CODE END TIM3_Init 1 */
     htim3.Instance = TIM3;
-    htim3.Init.Prescaler = 0;
+    htim3.Init.Prescaler = 16 - 1;
     htim3.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim3.Init.Period = 65535;
+    htim3.Init.Period = 100 - 1;
     htim3.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     htim3.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
     if (HAL_TIM_PWM_Init(&htim3) != HAL_OK) {
@@ -144,9 +144,9 @@ void MX_TIM14_Init(void) {
 
     /* USER CODE END TIM14_Init 1 */
     htim14.Instance = TIM14;
-    htim14.Init.Prescaler = 0;
+    htim14.Init.Prescaler = 16 - 1;
     htim14.Init.CounterMode = TIM_COUNTERMODE_UP;
-    htim14.Init.Period = 65535;
+    htim14.Init.Period = 100 - 1;
     htim14.Init.ClockDivision = TIM_CLOCKDIVISION_DIV1;
     htim14.Init.AutoReloadPreload = TIM_AUTORELOAD_PRELOAD_DISABLE;
     if (HAL_TIM_Base_Init(&htim14) != HAL_OK) {
@@ -305,5 +305,12 @@ void HAL_TIM_Base_MspDeInit(TIM_HandleTypeDef *tim_baseHandle) {
 }
 
 /* USER CODE BEGIN 1 */
+void tim_brake_update(bool actuated) {
+    const uint32_t duty_cycle = actuated ? (htim14.Instance->ARR + 1) : 0;
+    __HAL_TIM_SET_COMPARE(&htim14, TIM_CHANNEL_1, duty_cycle);
+}
 
+bool tim_brake_start() {
+    return HAL_TIM_PWM_Start(&htim14, TIM_CHANNEL_1) == HAL_OK;
+}
 /* USER CODE END 1 */
