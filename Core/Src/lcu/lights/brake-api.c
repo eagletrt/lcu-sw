@@ -8,7 +8,7 @@
  * \details This library provides a way to controll the brake status in an hardware agnostic way
  *
  */
-#include "brake_api.h"
+#include "brake-api.h"
 #include "eagletrt.h"
 #include <stddef.h>
 EAGLETRT_STATIC struct BrakeApiHandler brake_handler;

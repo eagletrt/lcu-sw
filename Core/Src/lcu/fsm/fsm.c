@@ -16,7 +16,7 @@ Functions and types have been generated with prefix "fsm_"
 #include "fsm.h"
 
 /*** USER CODE BEGIN MACROS ***/
-#include "brake_api.h"
+#include "brake-api.h"
 #include "eagletrt-api.h"
 /*** USER CODE END MACROS ***/
 
