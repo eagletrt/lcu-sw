@@ -11,22 +11,22 @@
 #include "brake-api.h"
 #include "eagletrt.h"
 #include <stddef.h>
-EAGLETRT_STATIC struct BrakeApiHandler brake_handler;
+EAGLETRT_STATIC struct BrakeHandler brake_handler;
 
 enum BrakeReturnCode brake_api_init(void (*brake_hw_update)(bool)) {
     if (brake_hw_update == NULL) {
         return BRAKE_RC_NULL_POINTER;
     }
-    brake_handler.brake_status = false;
-    brake_handler.brake_hw_update = brake_hw_update;
+    brake_handler.status = false;
+    brake_handler.update = brake_hw_update;
     return BRAKE_RC_OK;
 }
 
 bool brake_api_get_status() {
-    return brake_handler.brake_status;
+    return brake_handler.status;
 }
 
 void brake_api_set_status(bool status) {
-    brake_handler.brake_status = status;
-    brake_handler.brake_hw_update(status);
+    brake_handler.status = status;
+    brake_handler.update(status);
 }

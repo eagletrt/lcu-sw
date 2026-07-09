@@ -15,9 +15,9 @@
  * \brief           A structure that encapsulates data and functions required to
  *                  handle brake management.
  */
-struct BrakeApiHandler {
-    bool brake_status;                    /*!< brake status false= off true= on. */
-    void (*brake_hw_update)(bool status); /*!< Function pointer to brake hardware implementation. */
+struct BrakeHandler {
+    bool status;                 /*!< brake status false= off true= on. */
+    void (*update)(bool status); /*!< Function pointer to brake hardware implementation. */
 };
 
 /*!
