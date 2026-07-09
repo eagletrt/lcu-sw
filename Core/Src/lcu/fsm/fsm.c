@@ -18,6 +18,7 @@ Functions and types have been generated with prefix "fsm_"
 /*** USER CODE BEGIN MACROS ***/
 #include "brake-api.h"
 #include "eagletrt-api.h"
+#include "post.h"
 /*** USER CODE END MACROS ***/
 
 // GLOBALS
@@ -80,8 +81,8 @@ fsm_state_t fsm_do_init(fsm_state_data_t *data) {
     fsm_state_t next_state = FSM_STATE_IDLE;
 
     /*** USER CODE BEGIN DO_INIT ***/
-    //TODO: move this to the post module
-    if (brake_api_init(data->brake_hw_update) != BRAKE_RC_OK) {
+    struct PostInitData *init = (struct PostInitData *)data;
+    if (post_init(init) != POST_RC_OK) {
         next_state = FSM_STATE_FATAL;
     }
     /*** USER CODE END DO_INIT ***/

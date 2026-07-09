@@ -33,7 +33,8 @@ struct BrakeHandler {
 enum BrakeReturnCode {
     BRAKE_RC_OK,               /*!< Everything is fine. */
     BRAKE_RC_INVALID_ARGUMENT, /*!< Invalid parameter data. */
-    BRAKE_RC_NULL_POINTER      /*!< Unexpected NULL pointer. */
+    BRAKE_RC_NULL_POINTER,     /*!< Unexpected NULL pointer. */
+    BRAKE_RC_INIT_ERROR
 };
 
 #endif // BRAKE_H

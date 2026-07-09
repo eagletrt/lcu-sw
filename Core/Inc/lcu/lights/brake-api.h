@@ -21,7 +21,7 @@
  * \retval          PAL_RC_OK on success, an error otherwise:
  * \retval          PAL_RC_NULL_POINTER if any of the pointer parameters are NULL.
  */
-enum BrakeReturnCode brake_api_init(brake_update update);
+enum BrakeReturnCode brake_api_init(brake_update update, bool (*brake_hw_start)(void));
 
 /*!
  * \brief           set brake status.

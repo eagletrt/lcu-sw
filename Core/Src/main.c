@@ -28,6 +28,7 @@
 #include "fsm.h"
 #include "eagletrt-api.h"
 #include "brake-api.h"
+#include "post.h"
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -98,12 +99,8 @@ int main(void) {
     /* USER CODE BEGIN 2 */
     //TODO: use future post module struct
     //temp!! i can cast function pointers to object pointers, this will be replaced by a post data structure in the future
-    fsm_state_data_t brake_init = { .brake_hw_update = tim_brake_update };
-    fsm_state_t current_state = fsm_run_state(FSM_STATE_INIT, &brake_init);
-    //TODO: move pwm start inside future post module
-    if (tim_brake_start() == false) {
-        current_state = FSM_STATE_FATAL;
-    }
+    struct PostInitData init = { .brake_hw_update = tim_brake_update, .brake_hw_start = tim_brake_start };
+    fsm_state_t current_state = fsm_run_state(FSM_STATE_INIT, (fsm_state_data_t *)&init);
     /* USER CODE END 2 */
 
     /* Infinite loop */
