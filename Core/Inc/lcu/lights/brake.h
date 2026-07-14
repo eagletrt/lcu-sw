@@ -12,6 +12,13 @@
 #define BRAKE_H
 
 /*!
+ * \brief           Type definition for the function pointer of the hardware brake update.
+ *
+ * \param[in]       status: status to set the brake hardware to.
+ */
+typedef void (*brake_update)(bool status);
+
+/*!
  * \brief           A structure that encapsulates data and functions required to
  *                  handle brake management.
  */
