@@ -11,7 +11,6 @@ digraph "lcu_fsm" {
     ]
     flash
     idle
-    update_light
     fatal [
         style="filled"
         color="#ff6666"
@@ -23,15 +22,10 @@ digraph "lcu_fsm" {
     
     idle -> idle
     idle -> flash [label="idle_to_flash"]
-    idle -> update_light [label="idle_to_update_light"]
     idle -> fatal [label="idle_to_fatal"]
     
     flash -> idle [label="flash_to_idle"]
     flash -> fatal [label="flash_to_fatal"]
-    
-    update_light -> idle [label="update_light_to_idle"]
-    update_light -> fatal [label="update_light_to_fatal"]
-    update_light -> update_light
     
     fatal -> flash
     fatal -> fatal

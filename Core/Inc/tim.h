@@ -39,6 +39,8 @@ extern TIM_HandleTypeDef htim3;
 extern TIM_HandleTypeDef htim14;
 
 /* USER CODE BEGIN Private defines */
+bool tim_brake_start();
+void tim_brake_update(bool actuated);
 
 /* USER CODE END Private defines */
 
