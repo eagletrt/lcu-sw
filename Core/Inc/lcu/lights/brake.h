@@ -1,7 +1,7 @@
 /*!
  * \file brake.h
  * \date 2026-06-25
- * \authors Mario Mazzara [mario.mazzara@eagletrt.it] 
+ * \authors Mario Mazzara [mario.mazzara@eagletrt.it]
  *
  * \brief A simple api to turn the brake on and off.
  *
@@ -23,8 +23,8 @@ typedef void (*brake_update)(bool status);
  *                  handle brake management.
  */
 struct BrakeHandler {
-    bool status;                 /*!< brake status false= off true= on. */
-    void (*update)(bool status); /*!< Function pointer to brake hardware implementation. */
+    bool status;         /*!< brake status false= off true= on. */
+    brake_update update; /*!< Function pointer to brake hardware implementation. */
 };
 
 /*!
@@ -35,4 +35,5 @@ enum BrakeReturnCode {
     BRAKE_RC_INVALID_ARGUMENT, /*!< Invalid parameter data. */
     BRAKE_RC_NULL_POINTER      /*!< Unexpected NULL pointer. */
 };
-#endif // !BRAKE_H
+
+#endif // BRAKE_H

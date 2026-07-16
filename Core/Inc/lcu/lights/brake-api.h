@@ -1,7 +1,7 @@
 /*!
  * \file brake_api.h
  * \date 2026-06-25
- * \authors Mario Mazzara [mario.mazzara@eagletrt.it] 
+ * \authors Mario Mazzara [mario.mazzara@eagletrt.it]
  *
  * \brief A simple api to turn the brake on and off.
  *
@@ -34,9 +34,10 @@ void brake_api_set_status(bool status);
 /*!
  * \brief           get brake status.
  *
- * \retval          false = off 
+ * \retval          false = off
  * \retval          true = on.
  *
  */
 bool brake_api_get_status();
+
 #endif // !BRAKE_API_H

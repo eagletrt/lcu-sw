@@ -1,7 +1,7 @@
 /*!
  * \file brake_api.c
  * \date 2026-06-25
- * \authors Mario Mazzara [mario.mazzara@eagletrt.it] 
+ * \authors Mario Mazzara [mario.mazzara@eagletrt.it]
  *
  * \brief A simple api to turn the brake on and off.
  *
@@ -9,8 +9,10 @@
  *
  */
 #include "brake-api.h"
-#include "eagletrt.h"
+
 #include <stddef.h>
+#include "eagletrt.h"
+
 EAGLETRT_STATIC struct BrakeHandler brake_handler;
 
 enum BrakeReturnCode brake_api_init(brake_update update) {
