@@ -99,7 +99,7 @@ int main(void) {
     /* USER CODE BEGIN 2 */
     //TODO: use future post module struct
     //temp!! i can cast function pointers to object pointers, this will be replaced by a post data structure in the future
-    struct PostInitData init = { .brake_hw_update = tim_brake_update, .brake_hw_start = tim_brake_start };
+    struct PostInitData init = { .brake_update_fn = tim_brake_update, .brake_start_fn = tim_brake_start };
     fsm_state_t current_state = fsm_run_state(FSM_STATE_INIT, (fsm_state_data_t *)&init);
     /* USER CODE END 2 */
 

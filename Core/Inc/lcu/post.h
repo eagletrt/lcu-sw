@@ -2,6 +2,7 @@
 #define POST_H
 
 #include <stdint.h>
+#include <brake.h>
 
 /*!
  * \brief Possible return codes for POST functions
@@ -13,8 +14,8 @@ enum PostReturnCode {
 };
 
 struct PostInitData {
-    void (*brake_hw_update)(bool);
-    bool (*brake_hw_start)(void);
+    brake_update brake_update_fn;
+    brake_start brake_start_fn;
 };
 
 /*!

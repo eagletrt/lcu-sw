@@ -15,11 +15,11 @@
 
 EAGLETRT_STATIC struct BrakeHandler brake_handler;
 
-enum BrakeReturnCode brake_api_init(brake_update update, bool (*brake_hw_start)(void)) {
+enum BrakeReturnCode brake_api_init(brake_update update, brake_start start) {
     if (update == NULL) {
         return BRAKE_RC_NULL_POINTER;
     }
-    if (brake_hw_start() == false) {
+    if (start() == false) {
         return BRAKE_RC_INIT_ERROR;
     }
     brake_handler.status = false;
