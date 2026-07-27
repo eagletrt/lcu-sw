@@ -19,7 +19,7 @@
 typedef void (*brake_update)(bool status);
 
 /*!
- * \brief       Type definition for the function pointer of the hardware brake update.
+ * \brief       Type definition for the function pointer of the hardware brake start.
  *
  * \retval      true: hardware started successfully.
  * \retval      false: failed to start hardware interface.
