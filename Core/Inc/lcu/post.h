@@ -14,8 +14,8 @@ enum PostReturnCode {
 };
 
 struct PostInitData {
-    brake_update brake_update_fn;
-    brake_start brake_start_fn;
+    brake_update brake_update_callback;
+    brake_start brake_start_callback;
 };
 
 /*!
