@@ -17,11 +17,12 @@
  * \brief           Initialize the brake_data.
  *
  * \param[in]       update: pointer to brake_update function
+ * \param[in]       start: pointer to brake_start function
  *
  * \retval          PAL_RC_OK on success, an error otherwise:
  * \retval          PAL_RC_NULL_POINTER if any of the pointer parameters are NULL.
  */
-enum BrakeReturnCode brake_api_init(brake_update update);
+enum BrakeReturnCode brake_api_init(brake_update update, brake_start start);
 
 /*!
  * \brief           set brake status.
